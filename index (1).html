@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>해외여행 필수 영어 표현 20 | Passport Flashcards</title>
+  <style>
+    :root {
+      --navy: #14213d;
+      --navy-light: #1f325c;
+      --gold: #d4af37;
+      --cream: #faf7f0;
+      --paper: #fffdf9;
+      --ink-blue: #1d4ed8;
+      --ink-red: #b91c1c;
+      --ink-green: #15803d;
+      --ink-purple: #6d28d9;
+      --text-main: #1e293b;
+      --text-sub: #64748b;
+      --border: #e2d9c8;
+      --shadow: 0 12px 30px rgba(20, 33, 61, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      background: linear-gradient(135deg, #f3efe6 0%, #e7e0d0 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 20px 16px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .app-container {
+      width: 100%;
+      max-width: 760px;
+    }
+
+    /* Header - Passport Cover Style */
+    header {
+      background: var(--navy);
+      color: var(--gold);
+      border-radius: 18px;
+      padding: 22px 24px;
+      box-shadow: var(--shadow);
+      border: 2px solid rgba(212, 175, 55, 0.45);
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: "PASSPORT · TRAVEL ENGLISH";
+      position: absolute;
+      right: 18px;
+      bottom: 10px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      opacity: 0.45;
+      font-weight: 700;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .subtitle {
+      color: #e2e8f0;
+      font-size: 0.9rem;
+      margin-top: 6px;
+    }
+
+    .progress-badge {
+      background: rgba(212, 175, 55, 0.16);
+      border: 1px solid var(--gold);
+      color: #fef08a;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Situation Tabs */
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .tab-btn {
+      background: var(--paper);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 11px 8px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-sub);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .tab-btn span.tab-count {
+      font-size: 0.75rem;
+      font-weight: 600;
+      opacity: 0.8;
+    }
+
+    .tab-btn:hover {
+      border-color: var(--navy);
+      color: var(--navy);
+      transform: translateY(-1px);
+    }
+
+    .tab-btn.active {
+      background: var(--navy);
+      color: #ffffff;
+      border-color: var(--navy);
+      box-shadow: 0 6px 16px rgba(20, 33, 61, 0.2);
+    }
+
+    .tab-btn.active span.tab-count {
+      color: var(--gold);
+    }
+
+    /* Card Navigation Header */
+    .card-nav-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 0 4px;
+      font-size: 0.88rem;
+      color: var(--text-sub);
+      font-weight: 600;
+    }
+
+    .category-pill {
+      background: #e0e7ff;
+      color: #1e40af;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    /* 3D Flashcard */
+    .scene {
+      width: 100%;
+      height: 310px;
+      perspective: 1200px;
+      margin-bottom: 16px;
+      cursor: pointer;
+    }
+
+    .card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      transform-style: preserve-3d;
+    }
+
+    .card.is-flipped {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 20px;
+      background: var(--paper);
+      border: 2px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 26px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-front {
+      background-image: radial-gradient(#e6dec8 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      background: #ffffff;
+      border-color: var(--navy);
+    }
+
+    .face-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-sub);
+    }
+
+    .flip-hint {
+      background: #f1f5f9;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      color: #475569;
+    }
+
+    .front-body {
+      text-align: center;
+      padding: 10px 8px;
+    }
+
+    .situation-tag {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--navy);
+      background: rgba(212, 175, 55, 0.25);
+      padding: 4px 12px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+    }
+
+    .korean-phrase {
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 1.45;
+      color: var(--navy);
+      word-break: keep-all;
+    }
+
+    .korean-desc {
+      margin-top: 10px;
+      font-size: 0.92rem;
+      color: var(--text-sub);
+      word-break: keep-all;
+    }
+
+    .back-body {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .english-phrase {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.35;
+      word-break: keep-all;
+    }
+
+    .pronunciation {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #b45309;
+      background: #fef3c7;
+      padding: 6px 14px;
+      border-radius: 10px;
+    }
+
+    .tip-text {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      margin-top: 2px;
+    }
+
+    .tts-controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .tts-btn {
+      border: none;
+      border-radius: 10px;
+      padding: 9px 15px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.15s ease, background 0.2s ease;
+    }
+
+    .tts-btn:active {
+      transform: scale(0.96);
+    }
+
+    .tts-normal {
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .tts-normal:hover {
+      background: var(--navy-light);
+    }
+
+    .tts-slow {
+      background: #e2e8f0;
+      color: var(--navy);
+    }
+
+    .tts-slow:hover {
+      background: #cbd5e1;
+    }
+
+    .tts-btn.speaking {
+      outline: 3px solid var(--gold);
+    }
+
+    /* Action Bar */
+    .action-bar {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 10px;
+      margin-bottom: 26px;
+    }
+
+    .nav-btn, .stamp-btn {
+      border: none;
+      border-radius: 12px;
+      padding: 13px 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .nav-btn {
+      background: var(--paper);
+      color: var(--navy);
+      border: 1.5px solid var(--border);
+    }
+
+    .nav-btn:hover {
+      background: #f1ece1;
+    }
+
+    .stamp-btn {
+      background: #15803d;
+      color: #ffffff;
+      box-shadow: 0 6px 15px rgba(21, 128, 61, 0.25);
+    }
+
+    .stamp-btn:hover {
+      background: #166534;
+    }
+
+    .stamp-btn.stamped {
+      background: #475569;
+      box-shadow: none;
+    }
+
+    /* Passport Visa Page - Stamp Tracker */
+    .passport-section {
+      background: var(--cream);
+      border: 2px solid #d5cab4;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .passport-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px dashed #cbbba0;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .passport-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .reset-btn {
+      background: transparent;
+      border: 1px solid #cbd5e1;
+      color: #64748b;
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .reset-btn:hover {
+      background: #fee2e2;
+      color: #b91c1c;
+      border-color: #fca5a5;
+    }
+
+    .stamp-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .stamp-slot {
+      aspect-ratio: 1 / 1;
+      border: 1.5px dashed #cbbba0;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.55);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      padding: 4px;
+      transition: transform 0.15s ease, border-color 0.2s ease;
+      user-select: none;
+    }
+
+    .stamp-slot:hover {
+      transform: scale(1.04);
+      border-color: var(--navy);
+    }
+
+    .stamp-slot.current {
+      border: 2px solid var(--navy);
+      background: #fffbeb;
+    }
+
+    .slot-num {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #94a3b8;
+    }
+
+    .slot-cat {
+      font-size: 0.68rem;
+      color: #94a3b8;
+      margin-top: 2px;
+    }
+
+    /* Ink Stamp Graphic */
+    .ink-stamp {
+      position: absolute;
+      inset: 5px;
+      border: 2.5px solid currentColor;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      line-height: 1.05;
+      opacity: 0.88;
+      background: rgba(255, 255, 255, 0.75);
+      animation: stampThud 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .ink-stamp.shape-rect {
+      border-radius: 8px;
+    }
+
+    .ink-stamp .stamp-icon {
+      font-size: 1.05rem;
+    }
+
+    .ink-stamp .stamp-code {
+      font-size: 0.62rem;
+      letter-spacing: 0.5px;
+      margin-top: 1px;
+    }
+
+    .ink-stamp .stamp-date {
+      font-size: 0.52rem;
+      font-weight: 700;
+      opacity: 0.85;
+    }
+
+    @keyframes stampThud {
+      0% {
+        transform: scale(2.1) rotate(-18deg);
+        opacity: 0;
+      }
+      70% {
+        transform: scale(0.92) rotate(var(--rot, -6deg));
+        opacity: 0.95;
+      }
+      100% {
+        transform: scale(1) rotate(var(--rot, -6deg));
+        opacity: 0.88;
+      }
+    }
+
+    .keyboard-help {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-sub);
+      margin-top: 14px;
+    }
+
+    @media (max-width: 540px) {
+      .korean-phrase, .english-phrase {
+        font-size: 1.28rem;
+      }
+      .scene {
+        height: 330px;
+      }
+      .stamp-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .action-bar {
+        grid-template-columns: 1fr 1.6fr 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <div class="header-top">
+        <h1>🛂 해외여행 필수 영어 20</h1>
+        <div class="progress-badge" id="progressBadge">여권 도장 0 / 20</div>
+      </div>
+      <p class="subtitle">카드를 탭해 영어 표현과 발음을 확인하고, 학습 완료 도장을 모아보세요!</p>
+    </header>
+
+    <!-- 상황별 탭 -->
+    <nav class="tabs" id="tabContainer" aria-label="상황별 탭">
+      <button class="tab-btn active" data-tab="airport">✈️ 공항 <span class="tab-count" id="count-airport">0/5</span></button>
+      <button class="tab-btn" data-tab="hotel">🏨 호텔 <span class="tab-count" id="count-hotel">0/5</span></button>
+      <button class="tab-btn" data-tab="restaurant">🍽️ 식당 <span class="tab-count" id="count-restaurant">0/5</span></button>
+      <button class="tab-btn" data-tab="shopping">🛍️ 쇼핑 <span class="tab-count" id="count-shopping">0/5</span></button>
+    </nav>
+
+    <!-- 카드 상단 정보 -->
+    <div class="card-nav-info">
+      <span class="category-pill" id="cardCategoryBadge">인사 · 입국</span>
+      <span id="cardIndexLabel">공항 1 / 5 (전체 #1)</span>
+    </div>
+
+    <!-- 3D 플래시카드 -->
+    <div class="scene" id="cardScene" title="클릭하여 카드 뒤집기 (Space)">
+      <div class="card" id="flashcard">
+        <!-- 앞면: 한국어 상황 -->
+        <div class="card-face card-front">
+          <div class="face-header">
+            <span>🇰🇷 한국어 상황</span>
+            <span class="flip-hint">터치해서 뒤집기 ↻</span>
+          </div>
+          <div class="front-body">
+            <div class="situation-tag" id="frontSituation">공항 · 입국 심사대</div>
+            <div class="korean-phrase" id="frontKorean">안녕하세요, 관광하러 왔습니다.</div>
+            <div class="korean-desc" id="frontDesc">입국 심사관에게 방문 목적을 간단히 밝힐 때</div>
+          </div>
+          <div class="face-header">
+            <span id="frontStampStatus">⬜ 미완료</span>
+            <span>앞면 (FRONT)</span>
+          </div>
+        </div>
+
+        <!-- 뒷면: 영어 문장 + 읽는 법 + 음성 재생 -->
+        <div class="card-face card-back">
+          <div class="face-header">
+            <span>🇺🇸 영어 표현 & 읽는 법</span>
+            <span class="flip-hint">앞면으로 ↺</span>
+          </div>
+          <div class="back-body">
+            <div class="english-phrase" id="backEnglish">Hello, I'm here for sightseeing.</div>
+            <div class="pronunciation" id="backPron">헬로우, 아임 히어 포 사이트싱.</div>
+            <div class="tip-text" id="backTip">💡 휴가 목적이면 "for vacation"도 좋아요.</div>
+          </div>
+          <div class="tts-controls" onclick="event.stopPropagation()">
+            <button class="tts-btn tts-normal" id="speakNormalBtn" type="button">🔊 발음 듣기</button>
+            <button class="tts-btn tts-slow" id="speakSlowBtn" type="button">🐢 천천히 듣기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 이전 / 도장 찍기 / 다음 -->
+    <div class="action-bar">
+      <button class="nav-btn" id="prevBtn" type="button">← 이전</button>
+      <button class="stamp-btn" id="stampBtn" type="button">🛂 학습 완료 (여권 도장 찍기)</button>
+      <button class="nav-btn" id="nextBtn" type="button">다음 →</button>
+    </div>
+
+    <!-- 여권 사증란 진도 표시 -->
+    <section class="passport-section" aria-label="여권 도장 진도">
+      <div class="passport-header">
+        <div class="passport-title">📘 MY PASSPORT · 사증(VISA) 학습 도장판</div>
+        <button class="reset-btn" id="resetBtn" type="button">도장 초기화</button>
+      </div>
+      <div class="stamp-grid" id="stampGrid"></div>
+    </section>
+
+    <p class="keyboard-help">단축키: Space(카드 뒤집기) · ←/→(이전/다음 카드) · S(발음 듣기)</p>
+  </div>
+
+  <script>
+    const PHRASES = [
+      // 1. 공항 (Airport) - 5개
+      {
+        id: 1,
+        tab: "airport",
+        tabName: "공항",
+        funcType: "인사",
+        situation: "공항 · 입국 심사대",
+        korean: "안녕하세요, 관광하러 왔습니다.",
+        desc: "입국 심사관에게 첫인사와 방문 목적을 말할 때",
+        english: "Hello, I'm here for sightseeing.",
+        pronunciation: "헬로우, 아임 히어 포 사이트싱.",
+        tip: "휴가 목적이면 'for vacation'이라고 해도 자연스러워요.",
+        stampCode: "IMMIGRATION",
+        stampIcon: "✈️",
+        color: "#1d4ed8",
+        shape: "round"
+      },
+      {
+        id: 2,
+        tab: "airport",
+        tabName: "공항",
+        funcType: "길 묻기",
+        situation: "공항 · 환승 및 탑승구",
+        korean: "실례합니다, 12번 탑승구는 어디인가요?",
+        desc: "공항 직원에게 게이트 위치를 물어볼 때",
+        english: "Excuse me, where is gate twelve?",
+        pronunciation: "익스큐즈 미, 웨어 이즈 게이트 트웰브?",
+        tip: "숫자만 바꿔서 Gate 5(파이브), Gate 24(트웬티 포)로 활용하세요.",
+        stampCode: "GATE 12",
+        stampIcon: "🛫",
+        color: "#0f766e",
+        shape: "rect"
+      },
+      {
+        id: 3,
+        tab: "airport",
+        tabName: "공항",
+        funcType: "주문하기",
+        situation: "공항 · 유심/교통패스 구매",
+        korean: "데이터 유심카드 하나 사고 싶어요.",
+        desc: "공항 통신사 부스에서 선불 유심을 요청할 때",
+        english: "I'd like to buy a prepaid SIM card.",
+        pronunciation: "아이드 라이크 투 바이 어 프리페이드 심 카드.",
+        tip: "'I'd like to ~'는 '~하고 싶어요'라는 정중한 만능 표현입니다.",
+        stampCode: "SIM PASS",
+        stampIcon: "📶",
+        color: "#6d28d9",
+        shape: "round"
+      },
+      {
+        id: 4,
+        tab: "airport",
+        tabName: "공항",
+        funcType: "계산하기",
+        situation: "공항 · 공항버스/택시 요금",
+        korean: "시내까지 요금이 얼마인가요?",
+        desc: "공항에서 시내로 가는 교통편 요금을 미리 확인할 때",
+        english: "How much is the fare to downtown?",
+        pronunciation: "하우 머치 이즈 더 페어 투 다운타운?",
+        tip: "fare는 교통 요금을 뜻합니다. 호텔 이름을 넣어도 됩니다.",
+        stampCode: "EXPRESS",
+        stampIcon: "🚕",
+        color: "#b45309",
+        shape: "rect"
+      },
+      {
+        id: 5,
+        tab: "airport",
+        tabName: "공항",
+        funcType: "도움 요청",
+        situation: "공항 · 수하물 분실",
+        korean: "제 수하물이 아직 나오지 않았어요.",
+        desc: "수하물 찾는 곳에서 짐이 분실·지연되었을 때",
+        english: "My luggage hasn't arrived yet.",
+        pronunciation: "마이 러기지 해즌트 어라이브드 옛.",
+        tip: "수하물 영수증(Baggage Claim Tag)을 함께 보여주세요.",
+        stampCode: "BAGGAGE",
+        stampIcon: "🧳",
+        color: "#b91c1c",
+        shape: "round"
+      },
+
+      // 2. 호텔 (Hotel) - 5개
+      {
+        id: 6,
+        tab: "hotel",
+        tabName: "호텔",
+        funcType: "인사",
+        situation: "호텔 · 프런트 체크인",
+        korean: "안녕하세요, 체크인하고 싶습니다.",
+        desc: "호텔 프런트 데스크에 도착해 체크인을 요청할 때",
+        english: "Hi, I'd like to check in, please.",
+        pronunciation: "하이, 아이드 라이크 투 체크 인, 플리즈.",
+        tip: "예약자 이름과 여권을 함께 건네면 빠르게 진행됩니다.",
+        stampCode: "CHECK-IN",
+        stampIcon: "🏨",
+        color: "#1d4ed8",
+        shape: "rect"
+      },
+      {
+        id: 7,
+        tab: "hotel",
+        tabName: "호텔",
+        funcType: "길 묻기",
+        situation: "호텔 · 부대시설 안내",
+        korean: "조식당은 몇 층에 있나요?",
+        desc: "호텔 내 조식 레스토랑 위치를 물어볼 때",
+        english: "Which floor is the breakfast restaurant on?",
+        pronunciation: "위치 플로어 이즈 더 브렉퍼스트 레스토랑 온?",
+        tip: "엘리베이터 위치는 'Where is the elevator?'라고 물어요.",
+        stampCode: "BREAKFAST",
+        stampIcon: "🥐",
+        color: "#15803d",
+        shape: "round"
+      },
+      {
+        id: 8,
+        tab: "hotel",
+        tabName: "호텔",
+        funcType: "주문하기",
+        situation: "호텔 · 객실 비품 요청",
+        korean: "수건 두 장만 더 주실 수 있나요?",
+        desc: "객실에 수건이나 생수를 추가로 요청할 때",
+        english: "Could I have two more towels, please?",
+        pronunciation: "쿠드 아이 해브 투 모어 타월즈, 플리즈?",
+        tip: "생수는 'some bottled water'로 바꾸어 말하면 됩니다.",
+        stampCode: "SERVICE",
+        stampIcon: "🛎️",
+        color: "#6d28d9",
+        shape: "rect"
+      },
+      {
+        id: 9,
+        tab: "hotel",
+        tabName: "호텔",
+        funcType: "계산하기",
+        situation: "호텔 · 체크아웃 정산",
+        korean: "체크아웃하고 영수증을 받고 싶어요.",
+        desc: "퇴실하면서 숙박비·보증금 내역을 확인할 때",
+        english: "I'd like to check out and get a receipt.",
+        pronunciation: "아이드 라이크 투 체크 아웃 앤 겟 어 리시트.",
+        tip: "receipt의 p는 묵음이라 '리시트'로 발음합니다.",
+        stampCode: "CHECK-OUT",
+        stampIcon: "🧾",
+        color: "#b45309",
+        shape: "round"
+      },
+      {
+        id: 10,
+        tab: "hotel",
+        tabName: "호텔",
+        funcType: "도움 요청",
+        situation: "호텔 · 짐 보관 부탁",
+        korean: "체크인 전까지 제 짐을 맡아 주실 수 있나요?",
+        desc: "일찍 도착하거나 체크아웃 후 캐리어를 맡길 때",
+        english: "Can you hold my bags until check-in?",
+        pronunciation: "캔 유 홀드 마이 백스 언틸 체크 인?",
+        tip: "체크아웃 후에는 'until tonight(오늘 밤까지)'로 응용하세요.",
+        stampCode: "CONCIERGE",
+        stampIcon: "🔐",
+        color: "#b91c1c",
+        shape: "rect"
+      },
+
+      // 3. 식당 (Restaurant) - 5개
+      {
+        id: 11,
+        tab: "restaurant",
+        tabName: "식당",
+        funcType: "인사",
+        situation: "식당 · 입장 및 좌석 안내",
+        korean: "안녕하세요, 두 명 자리 있나요?",
+        desc: "식당 입구에서 직원에게 인원수를 말할 때",
+        english: "Hello, a table for two, please.",
+        pronunciation: "헬로우, 어 테이블 포 투, 플리즈.",
+        tip: "인원수에 따라 two / three / four만 바꾸면 됩니다.",
+        stampCode: "TABLE FOR 2",
+        stampIcon: "🍽️",
+        color: "#15803d",
+        shape: "round"
+      },
+      {
+        id: 12,
+        tab: "restaurant",
+        tabName: "식당",
+        funcType: "길 묻기",
+        situation: "식당 · 화장실 찾기",
+        korean: "실례합니다, 화장실이 어디에 있나요?",
+        desc: "식당이나 카페에서 화장실 위치를 물어볼 때",
+        english: "Excuse me, where is the restroom?",
+        pronunciation: "익스큐즈 미, 웨어 이즈 더 레스트룸?",
+        tip: "영국·유럽권에서는 'toilet'이나 'washroom'도 자주 씁니다.",
+        stampCode: "RESTROOM",
+        stampIcon: "🚻",
+        color: "#1d4ed8",
+        shape: "rect"
+      },
+      {
+        id: 13,
+        tab: "restaurant",
+        tabName: "식당",
+        funcType: "주문하기",
+        situation: "식당 · 추천 메뉴 주문",
+        korean: "이걸로 하나 주시고, 인기 메뉴도 추천해 주세요.",
+        desc: "메뉴판을 가리키며 주문하고 추천을 받을 때",
+        english: "I'll have this, and what do you recommend?",
+        pronunciation: "아일 해브 디스, 앤 왓 두 유 레커멘드?",
+        tip: "식당에서 주문할 땐 'I'll have ~'가 가장 자연스럽습니다.",
+        stampCode: "CHEF'S PICK",
+        stampIcon: "🍷",
+        color: "#6d28d9",
+        shape: "round"
+      },
+      {
+        id: 14,
+        tab: "restaurant",
+        tabName: "식당",
+        funcType: "계산하기",
+        situation: "식당 · 계산서 요청",
+        korean: "계산서 좀 가져다주시겠어요?",
+        desc: "식사를 마치고 자리에서 계산을 요청할 때",
+        english: "Could we get the check, please?",
+        pronunciation: "쿠드 위 겟 더 체크, 플리즈?",
+        tip: "유럽에서는 'check' 대신 'bill'을 더 많이 사용합니다.",
+        stampCode: "PAID · BILL",
+        stampIcon: "💳",
+        color: "#b45309",
+        shape: "rect"
+      },
+      {
+        id: 15,
+        tab: "restaurant",
+        tabName: "식당",
+        funcType: "도움 요청",
+        situation: "식당 · 알레르기/재료 제외",
+        korean: "고수는 빼 주실 수 있나요?",
+        desc: "못 먹는 식재료나 알레르기 유발 재료를 빼달라고 할 때",
+        english: "Could you leave out the cilantro, please?",
+        pronunciation: "쿠드 유 리브 아웃 더 실란트로, 플리즈?",
+        tip: "땅콩은 'peanuts', 매운 소스는 'spicy sauce'로 바꿔 쓰세요.",
+        stampCode: "NO CILANTRO",
+        stampIcon: "🥗",
+        color: "#b91c1c",
+        shape: "round"
+      },
+
+      // 4. 쇼핑 (Shopping) - 5개
+      {
+        id: 16,
+        tab: "shopping",
+        tabName: "쇼핑",
+        funcType: "인사",
+        situation: "쇼핑 · 매장 입장 응대",
+        korean: "안녕하세요! 그냥 둘러보는 중이에요.",
+        desc: "직원이 다가와 도움을 줄지 물을 때 가볍게 답할 때",
+        english: "Hi there! I'm just looking around.",
+        pronunciation: "하이 데어! 아임 저스트 루킹 어라운드.",
+        tip: "부담 없이 매장을 구경하고 싶을 때 꼭 쓰는 표현입니다.",
+        stampCode: "BROWSING",
+        stampIcon: "🛍️",
+        color: "#0f766e",
+        shape: "rect"
+      },
+      {
+        id: 17,
+        tab: "shopping",
+        tabName: "쇼핑",
+        funcType: "길 묻기",
+        situation: "쇼핑 · 탈의실 위치",
+        korean: "탈의실이 어디에 있는지 알려주시겠어요?",
+        desc: "옷을 입어보기 위해 피팅룸을 찾을 때",
+        english: "Could you tell me where the fitting room is?",
+        pronunciation: "쿠드 유 텔 미 웨어 더 피팅 룸 이즈?",
+        tip: "입어봐도 될지 물을 땐 'Can I try this on?'이라고 합니다.",
+        stampCode: "FITTING ROOM",
+        stampIcon: "👕",
+        color: "#1d4ed8",
+        shape: "round"
+      },
+      {
+        id: 18,
+        tab: "shopping",
+        tabName: "쇼핑",
+        funcType: "주문하기",
+        situation: "쇼핑 · 다른 사이즈 요청",
+        korean: "이거 미디엄(M) 사이즈로 새 상품 있나요?",
+        desc: "원하는 사이즈나 새 제품을 직원에게 요청할 때",
+        english: "Do you have this in a medium, brand new?",
+        pronunciation: "두 유 해브 디스 인 어 미디엄, 브랜드 뉴?",
+        tip: "작은 사이즈는 'a small', 큰 사이즈는 'a large'입니다.",
+        stampCode: "SIZE M",
+        stampIcon: "🏷️",
+        color: "#6d28d9",
+        shape: "rect"
+      },
+      {
+        id: 19,
+        tab: "shopping",
+        tabName: "쇼핑",
+        funcType: "계산하기",
+        situation: "쇼핑 · 택스 리펀(면세) 결제",
+        korean: "카드로 결제할게요. 택스 리펀 서류도 가능할까요?",
+        desc: "결제하면서 외국인 부가세 환급 서류를 요청할 때",
+        english: "I'll pay by card. Can I get a tax-free form?",
+        pronunciation: "아일 페이 바이 카드. 캔 아이 겟 어 택스 프리 폼?",
+        tip: "여권을 제시해야 면세 서류를 발급해 주는 매장이 많습니다.",
+        stampCode: "TAX FREE",
+        stampIcon: "💎",
+        color: "#b45309",
+        shape: "round"
+      },
+      {
+        id: 20,
+        tab: "shopping",
+        tabName: "쇼핑",
+        funcType: "도움 요청",
+        situation: "쇼핑/거리 · 사진 촬영 부탁",
+        korean: "실례합니다, 저희 사진 한 장만 찍어주실 수 있나요?",
+        desc: "여행지나 쇼핑 거리에서 행인에게 사진 촬영을 부탁할 때",
+        english: "Excuse me, could you take a picture of us?",
+        pronunciation: "익스큐즈 미, 쿠드 유 테이크 어 픽처 오브 어스?",
+        tip: "혼자 여행 중일 때는 'of us' 대신 'of me'라고 하면 됩니다.",
+        stampCode: "SOUVENIR",
+        stampIcon: "📸",
+        color: "#b91c1c",
+        shape: "rect"
+      }
+    ];
+
+    const STORAGE_KEY = "travel_english_passport_stamps_v1";
+    let currentTab = "airport";
+    let currentIndexInTab = 0;
+    let isFlipped = false;
+    let stampedMap = loadStamps();
+
+    // DOM Elements
+    const tabButtons = document.querySelectorAll(".tab-btn");
+    const flashcard = document.getElementById("flashcard");
+    const cardScene = document.getElementById("cardScene");
+    const cardCategoryBadge = document.getElementById("cardCategoryBadge");
+    const cardIndexLabel = document.getElementById("cardIndexLabel");
+    const frontSituation = document.getElementById("frontSituation");
+    const frontKorean = document.getElementById("frontKorean");
+    const frontDesc = document.getElementById("frontDesc");
+    const frontStampStatus = document.getElementById("frontStampStatus");
+    const backEnglish = document.getElementById("backEnglish");
+    const backPron = document.getElementById("backPron");
+    const backTip = document.getElementById("backTip");
+    const speakNormalBtn = document.getElementById("speakNormalBtn");
+    const speakSlowBtn = document.getElementById("speakSlowBtn");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const stampBtn = document.getElementById("stampBtn");
+    const stampGrid = document.getElementById("stampGrid");
+    const progressBadge = document.getElementById("progressBadge");
+    const resetBtn = document.getElementById("resetBtn");
+
+    function loadStamps() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : {};
+      } catch (e) {
+        return {};
+      }
+    }
+
+    function saveStamps() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(stampedMap));
+      } catch (e) {
+        // Ignore storage quota errors
+      }
+    }
+
+    function getTabPhrases(tab) {
+      return PHRASES.filter((item) => item.tab === tab);
+    }
+
+    function getCurrentPhrase() {
+      const list = getTabPhrases(currentTab);
+      return list[currentIndexInTab] || list[0];
+    }
+
+    function formatTodayStamp() {
+      const now = new Date();
+      const yy = String(now.getFullYear()).slice(-2);
+      const mm = String(now.getMonth() + 1).padStart(2, "0");
+      const dd = String(now.getDate()).padStart(2, "0");
+      return `${yy}.${mm}.${dd}`;
+    }
+
+    function renderCard() {
+      const item = getCurrentPhrase();
+      const tabList = getTabPhrases(currentTab);
+      const stampedInfo = stampedMap[item.id];
+
+      // Update Tab active state
+      tabButtons.forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.tab === currentTab);
+      });
+
+      // Reset flip state smoothly
+      isFlipped = false;
+      flashcard.classList.remove("is-flipped");
+
+      // Populate text
+      cardCategoryBadge.textContent = `${item.tabName} · ${item.funcType}`;
+      cardIndexLabel.textContent = `${item.tabName} ${currentIndexInTab + 1} / ${tabList.length} (전체 #${item.id})`;
+
+      frontSituation.textContent = item.situation;
+      frontKorean.textContent = item.korean;
+      frontDesc.textContent = item.desc;
+      frontStampStatus.textContent = stampedInfo ? `✅ 여권 도장 완료 (${stampedInfo.date})` : "⬜ 미완료";
+
+      backEnglish.textContent = item.english;
+      backPron.textContent = item.pronunciation;
+      backTip.textContent = `💡 ${item.tip}`;
+
+      // Stamp Button state
+      if (stampedInfo) {
+        stampBtn.textContent = "✅ 도장 찍힘 (취소하려면 클릭)";
+        stampBtn.classList.add("stamped");
+      } else {
+        stampBtn.textContent = "🛂 학습 완료 (여권 도장 찍기)";
+        stampBtn.classList.remove("stamped");
+      }
+
+      renderPassportStamps();
+      updateCounters();
+    }
+
+    function updateCounters() {
+      const totalStamped = Object.keys(stampedMap).length;
+      progressBadge.textContent = `여권 도장 ${totalStamped} / ${PHRASES.length}`;
+
+      ["airport", "hotel", "restaurant", "shopping"].forEach((tabKey) => {
+        const list = getTabPhrases(tabKey);
+        const done = list.filter((p) => Boolean(stampedMap[p.id])).length;
+        const el = document.getElementById(`count-${tabKey}`);
+        if (el) el.textContent = `${done}/${list.length}`;
+      });
+    }
+
+    function renderPassportStamps() {
+      const currentItem = getCurrentPhrase();
+      stampGrid.innerHTML = "";
+
+      PHRASES.forEach((item) => {
+        const slot = document.createElement("div");
+        slot.className = "stamp-slot" + (item.id === currentItem.id ? " current" : "");
+        slot.title = `#${item.id} [${item.tabName}] ${item.korean}`;
+
+        const numEl = document.createElement("div");
+        numEl.className = "slot-num";
+        numEl.textContent = `NO.${String(item.id).padStart(2, "0")}`;
+
+        const catEl = document.createElement("div");
+        catEl.className = "slot-cat";
+        catEl.textContent = item.tabName;
+
+        slot.appendChild(numEl);
+        slot.appendChild(catEl);
+
+        const stampedInfo = stampedMap[item.id];
+        if (stampedInfo) {
+          const stamp = document.createElement("div");
+          stamp.className = `ink-stamp ${item.shape === "rect" ? "shape-rect" : ""}`;
+          stamp.style.color = item.color;
+          stamp.style.setProperty("--rot", `${stampedInfo.rotation}deg`);
+          stamp.style.transform = `rotate(${stampedInfo.rotation}deg)`;
+
+          stamp.innerHTML = `
+            <span class="stamp-icon">${item.stampIcon}</span>
+            <span class="stamp-code">${item.stampCode}</span>
+            <span class="stamp-date">${stampedInfo.date}</span>
+          `;
+          slot.appendChild(stamp);
+        }
+
+        slot.addEventListener("click", () => {
+          currentTab = item.tab;
+          const list = getTabPhrases(currentTab);
+          currentIndexInTab = list.findIndex((p) => p.id === item.id);
+          renderCard();
+        });
+
+        stampGrid.appendChild(slot);
+      });
+    }
+
+    function toggleFlip() {
+      isFlipped = !isFlipped;
+      flashcard.classList.toggle("is-flipped", isFlipped);
+    }
+
+    function toggleStampCurrent() {
+      const item = getCurrentPhrase();
+      if (stampedMap[item.id]) {
+        delete stampedMap[item.id];
+      } else {
+        const randomRot = Math.floor(Math.random() * 17) - 8; // -8deg ~ +8deg
+        stampedMap[item.id] = {
+          date: formatTodayStamp(),
+          rotation: randomRot
+        };
+      }
+      saveStamps();
+      renderCard();
+    }
+
+    function moveCard(step) {
+      const list = getTabPhrases(currentTab);
+      currentIndexInTab = (currentIndexInTab + step + list.length) % list.length;
+      renderCard();
+    }
+
+    function speakPhrase(rate = 1.0, activeBtn = null) {
+      if (!("speechSynthesis" in window)) {
+        alert("이 브라우저는 음성 합성(TTS) 기능을 지원하지 않습니다.");
+        return;
+      }
+
+      window.speechSynthesis.cancel();
+      const item = getCurrentPhrase();
+      const utterance = new SpeechSynthesisUtterance(item.english);
+      utterance.lang = "en-US";
+      utterance.rate = rate;
+      utterance.pitch = 1.0;
+
+      const voices = window.speechSynthesis.getVoices();
+      const preferredVoice =
+        voices.find((v) => v.lang === "en-US" && /Google|Samantha|Alex|Natural/i.test(v.name)) ||
+        voices.find((v) => v.lang.startsWith("en-US")) ||
+        voices.find((v) => v.lang.startsWith("en"));
+
+      if (preferredVoice) {
+        utterance.voice = preferredVoice;
+      }
+
+      speakNormalBtn.classList.remove("speaking");
+      speakSlowBtn.classList.remove("speaking");
+
+      if (activeBtn) {
+        utterance.onstart = () => activeBtn.classList.add("speaking");
+        utterance.onend = () => activeBtn.classList.remove("speaking");
+        utterance.onerror = () => activeBtn.classList.remove("speaking");
+      }
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Event Listeners
+    tabButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        currentTab = btn.dataset.tab;
+        currentIndexInTab = 0;
+        renderCard();
+      });
+    });
+
+    cardScene.addEventListener("click", toggleFlip);
+    prevBtn.addEventListener("click", () => moveCard(-1));
+    nextBtn.addEventListener("click", () => moveCard(1));
+    stampBtn.addEventListener("click", toggleStampCurrent);
+
+    speakNormalBtn.addEventListener("click", () => speakPhrase(1.0, speakNormalBtn));
+    speakSlowBtn.addEventListener("click", () => speakPhrase(0.72, speakSlowBtn));
+
+    resetBtn.addEventListener("click", () => {
+      if (Object.keys(stampedMap).length === 0) return;
+      if (confirm("여권 도장 기록을 모두 초기화할까요?")) {
+        stampedMap = {};
+        saveStamps();
+        renderCard();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Space") {
+        e.preventDefault();
+        toggleFlip();
+      } else if (e.code === "ArrowLeft") {
+        moveCard(-1);
+      } else if (e.code === "ArrowRight") {
+        moveCard(1);
+      } else if (e.key.toLowerCase() === "s") {
+        speakPhrase(1.0, speakNormalBtn);
+      }
+    });
+
+    // Ensure voices are loaded asynchronously in Chrome/Safari
+    if ("speechSynthesis" in window) {
+      window.speechSynthesis.onvoiceschanged = () => {};
+    }
+
+    // Initial Render
+    renderCard();
+  </script>
+</body>
+</html>
